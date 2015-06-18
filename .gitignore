@@ -36,6 +36,7 @@
 ehthumbs.db
 Thumbs.db
 
-# Node Modules #
+# Other #
 ################
 node_modules
+dist

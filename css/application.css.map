@@ -1,0 +1,1 @@
+{"version":3,"sources":["application.scss"],"names":[],"mappings":"AAAA,EAAE,CAAA;EACA,KAAK,EAAE,IAAK,GADX;;AAGH,EAAE,CAAA;EACA,KAAK,EAAE,KAAM,GADZ;;AAGH,EAAE,CAAA;EACA,KAAK,EAAE,MAAO,GADb","file":"application.css","sourcesContent":["h1{\n  color: blue;\n}\nh2{\n  width: 200px;\n}\nh3{\n  color: orange;\n}"],"sourceRoot":"/source/"}
