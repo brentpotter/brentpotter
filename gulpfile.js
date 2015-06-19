@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     maps = require('gulp-sourcemaps'),
-     del = require('del');  
+     del = require('del');
 
 gulp.task("concatScripts", function() {
   return gulp.src([
@@ -22,26 +22,30 @@ gulp.task("minifyScripts", ["concatScripts"], function() {
   .pipe(gulp.dest('js'));
 });
 
-gulp.task('compileSass', function() {
-  return gulp.src("scss/application.scss")
+gulp.task('sassCompile', function() {
+  return gulp.src("scss/**/*.scss")
   .pipe(maps.init())
-  .pipe(sass())
-  .pipe(maps.write('./'))
+  .pipe(sass({
+    // includePaths: require('node-bourbon').with('other/path', 'another/path') 
+    // - or - 
+    includePaths: require('node-bourbon').includePaths
+  }))
+  // .pipe(maps.write('./'))
   .pipe(gulp.dest('css'));
 });
 
 gulp.task('watchFiles', function() {
-  gulp.watch('scss/**/*.scss', ['compileSass']);
+  gulp.watch('scss/**/*.scss', ['sassCompile']);
   gulp.watch('js/main.js', ['concatScripts']);
 });
 
 gulp.task('clean', function() {
-  del(['dist', 'css/application.css', 'js/app.*.js*']);
+  del(['dist', 'css/application.css*', 'js/app.*.js*']);
 });
 
 gulp.task('serve', ['watchFiles']);
 
-gulp.task("build", ['minifyScripts', 'compileSass'], function() {
+gulp.task("build", ['minifyScripts', 'sassCompile'], function() {
   return gulp.src(["css/application.css*", "js/app.min.js", '*.html', "img/**"], { base: './'})
   .pipe(gulp.dest('dist'));
 });
