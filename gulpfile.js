@@ -30,7 +30,7 @@ gulp.task('sassCompile', function() {
     // - or - 
     includePaths: require('node-bourbon').includePaths
   }))
-  // .pipe(maps.write('./'))
+  .pipe(maps.write('./'))
   .pipe(gulp.dest('css'));
 });
 
