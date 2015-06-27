@@ -1,1 +1,112 @@
 @import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+
+$primary: #282739;
+$link: #ff3c00;
+
+html{
+  min-height: 100%;
+}
+
+body{
+  min-height: 100%;
+  background: 
+    url("/img/wilderness-01.svg") no-repeat bottom fixed,
+    url("/img/wilderness-02.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-03.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-04.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-05.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-06.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-07.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-08.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-09.svg") no-repeat bottom fixed, 
+    url("/img/wilderness-10.svg") no-repeat bottom fixed,
+    url("/img/wilderness-11.svg") no-repeat bottom fixed, 
+    linear-gradient($primary, #562827, #562827, #562827);
+    background-size: cover;
+  color: #ececec;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: modular-scale(1);
+}
+
+a{
+  color: white;
+}
+
+header{
+  margin-top: 1em;
+  @include outer-container;
+  h1{
+    float: left;
+    font-weight: 400;
+  }
+}
+
+section#main{
+  @include outer-container;
+  article { 
+    @include media($large-screen-up){
+      @include span-columns(6);
+    }
+    h1{
+      font-size: 2em;
+    }
+  }
+}
+
+footer{
+  @include outer-container;
+  font-size: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-top: 1px solid $primary;
+  padding: 1em 0;
+}
+
+section#contact-info{
+  width: 40%;
+  background: $primary;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+}
+
+.contact-info{
+  color: $link;
+  font-weight: 700;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  text-align: right;
+  font-size: modular-scale(2);
+}
+
+#main{
+  margin-top: 7%;
+}
+
+nav{
+  float: right;
+}
+
+.link-default{
+  color: $link;
+  margin-right: 1em;
+}
+.link-focus{
+  border-radius: 2em;
+  color: white;
+  background: $link;
+  padding: 0.5em 1.5em;
+  font-size: modular-scale(-1);
+}
+
+.social-links{
+  margin-top: 2em;
+}
